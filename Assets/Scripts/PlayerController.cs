@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour
 {
     float horizontalMovement;
     float verticalMovement;
+    float gravity;
+    float gravityVelocity;
 
     float cameraPitch;
 
@@ -13,6 +15,7 @@ public class PlayerController : MonoBehaviour
     float lookSensitivity;
 
     public Transform playerCamera;
+    CharacterController controller = null;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +24,8 @@ public class PlayerController : MonoBehaviour
         speedModifer = 4f;
         lookSensitivity = 5f;
         cameraPitch = 0.0f;
+        gravity = 9.81f;
+        gravityVelocity = 0.0f;
     }
 
     // Update is called once per frame
@@ -38,6 +43,12 @@ public class PlayerController : MonoBehaviour
 
         verticalMovement = Input.GetAxis("Vertical") * speedModifer * Time.deltaTime;
         transform.Translate(0, 0, verticalMovement);
+
+        if (controller.isGrounded)
+        {
+            gravityVelocity = 0.0f;
+        }
+        gravityVelocity += gravity * Time.deltaTime;
     }
 
     // ------------------------------------------------------------- Mouse Look
@@ -45,7 +56,7 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 mouseLook = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y") * lookSensitivity);
 
-        cameraPitch -= mouseLook.y * lookSensitivity;
+        cameraPitch -= mouseLook.y * lookSensitivity; // 
         cameraPitch = Mathf.Clamp(cameraPitch, -90, 90);
         playerCamera.localEulerAngles = Vector3.right * cameraPitch;
 
