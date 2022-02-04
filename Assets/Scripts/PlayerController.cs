@@ -36,26 +36,25 @@ public class PlayerController : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {       
+    {
         Move();
         Look();
         Jump();
         Falling();
         Paused();
-
-
+        Shoot();
     }
 
     // -------------------------------------------------------------- Movement
     void Move()
-    {          
+    {
         horizontalMovement = Input.GetAxis("Horizontal");
         verticalMovement = Input.GetAxis("Vertical");
 
         Vector3 move = transform.right * horizontalMovement + transform.forward * verticalMovement;
 
         controller.Move(move * speedModifer * Time.deltaTime);
-      
+
     }
 
     // ------------------------------------------------------------- Mouse Look
@@ -63,7 +62,7 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 mouseLook = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y") * lookSensitivity);
 
-        cameraPitch -= mouseLook.y; 
+        cameraPitch -= mouseLook.y;
         cameraPitch = Mathf.Clamp(cameraPitch, -90, 90);
         playerCamera.localEulerAngles = Vector3.right * cameraPitch;
 
@@ -79,7 +78,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // ---------- I'll figure this out later --------------------- isGrounded
+    // --------------------------------------------------------------- isGrounded
     void Falling()
     {
         RaycastHit hit;
@@ -89,7 +88,6 @@ public class PlayerController : MonoBehaviour
 
         if (isGrounded)
         {
-            Debug.Log("is Grounded");
             velocity.y -= 0.1f * Time.deltaTime;
             controller.Move(velocity * Time.deltaTime);
         }
@@ -98,13 +96,13 @@ public class PlayerController : MonoBehaviour
             // gravity
             velocity.y += gravity * Time.deltaTime;
             controller.Move(velocity * Time.deltaTime);
-        }       
+        }
     }
 
     // *might move* ---------------------------------------------- Pause functions
     void Paused()
     {
-        
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (!isPaused)
@@ -124,6 +122,20 @@ public class PlayerController : MonoBehaviour
         {
             // Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+        }
+    }
+
+    // --------------------- WIP ------------------------------------ Shooting
+
+    void Shoot()
+    {
+        RaycastHit hit;
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            Debug.Log("Pew");
+            Physics.Raycast(playerCamera.transform.position, Vector3.forward, out hit, 50f);
+            Debug.DrawRay(transform.position, Vector3.forward);
         }
     }
 }
