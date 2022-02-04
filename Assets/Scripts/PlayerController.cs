@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     float lookSensitivity;
 
     bool isPaused = false;
+    bool isGrounded;
 
     public Transform playerCamera;
     public CharacterController controller;
@@ -26,7 +27,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         // init
-        speedModifer = 4f;
+        speedModifer = 10f;
         lookSensitivity = 10f;
         cameraPitch = 0.0f;
         gravity = -9.81f;
@@ -72,22 +73,32 @@ public class PlayerController : MonoBehaviour
     // -------------------------------------------------------------- Jumping
     void Jump()
     {
-
+        if (Input.GetButtonDown("Jump") && isGrounded)
+        {
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+        }
     }
 
     // ---------- I'll figure this out later --------------------- isGrounded
     void Falling()
     {
-        if (!controller.isGrounded)
+        RaycastHit hit;
+
+        isGrounded = Physics.Raycast(transform.position, Vector3.down, out hit, 1.6f);
+        Debug.DrawRay(transform.position, Vector3.down);
+
+        if (isGrounded)
         {
-            velocity.y += gravity * Time.deltaTime;
+            Debug.Log("is Grounded");
+            velocity.y -= 0.1f * Time.deltaTime;
             controller.Move(velocity * Time.deltaTime);
         }
-        else
+        else if (!isGrounded)
         {
-            velocity.y = 0f;
-        }
-        
+            // gravity
+            velocity.y += gravity * Time.deltaTime;
+            controller.Move(velocity * Time.deltaTime);
+        }       
     }
 
     // *might move* ---------------------------------------------- Pause functions
