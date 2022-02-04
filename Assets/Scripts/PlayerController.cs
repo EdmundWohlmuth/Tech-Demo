@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     float horizontalMovement;
     float verticalMovement;
     Vector3 characterMovement;
+    Vector3 velocity;
 
     float gravity;
     float jumpHeight;
@@ -17,8 +18,6 @@ public class PlayerController : MonoBehaviour
     float lookSensitivity;
 
     bool isPaused = false;
-
-    float velocityY;
 
     public Transform playerCamera;
     public CharacterController controller;
@@ -49,13 +48,12 @@ public class PlayerController : MonoBehaviour
     // -------------------------------------------------------------- Movement
     void Move()
     {          
-        horizontalMovement = Input.GetAxis("Horizontal") * speedModifer * Time.deltaTime;
-        transform.Translate(horizontalMovement, 0, 0);
+        horizontalMovement = Input.GetAxis("Horizontal");
+        verticalMovement = Input.GetAxis("Vertical");
 
-        verticalMovement = Input.GetAxis("Vertical") * speedModifer * Time.deltaTime;
-        transform.Translate(0, 0, verticalMovement);
+        Vector3 move = transform.right * horizontalMovement + transform.forward * verticalMovement;
 
-        characterMovement = new Vector3(horizontalMovement, velocityY, verticalMovement);
+        controller.Move(move * speedModifer * Time.deltaTime);
       
     }
 
@@ -74,25 +72,22 @@ public class PlayerController : MonoBehaviour
     // -------------------------------------------------------------- Jumping
     void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && controller.isGrounded)
-        {
-            velocityY += Mathf.Sqrt(jumpHeight * -3.0f * gravity);
-        }
+
     }
 
     // ---------- I'll figure this out later --------------------- isGrounded
     void Falling()
     {
-        if (controller.isGrounded && velocityY < 0)
+        if (!controller.isGrounded)
         {
-            Debug.Log("is grounded");
-            velocityY = 0;
+            velocity.y += gravity * Time.deltaTime;
+            controller.Move(velocity * Time.deltaTime);
         }
         else
         {
-            Debug.Log("isn't grounded");
-
+            velocity.y = 0f;
         }
+        
     }
 
     // *might move* ---------------------------------------------- Pause functions
