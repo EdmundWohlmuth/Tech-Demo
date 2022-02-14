@@ -405,6 +405,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isOpening: 0
+  maxHeight: 0
+  minHeight: 0
+  vertialHeight: 0
+  currentHeight: {x: 0, y: 0, z: 0}
 --- !u!65 &525639760
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1398,3 +1402,60 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2258793980390345419, guid: 5f90a0af54ae7544e99ae36d546d7ad0, type: 3}
   m_PrefabInstance: {fileID: 2532632810137814868}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6400293612222931815
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6400293612983611612, guid: f0675cd033010bf49b6691d0fb6a0266, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6400293612983611612, guid: f0675cd033010bf49b6691d0fb6a0266, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 6400293612983611612, guid: f0675cd033010bf49b6691d0fb6a0266, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6400293612983611612, guid: f0675cd033010bf49b6691d0fb6a0266, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6400293612983611612, guid: f0675cd033010bf49b6691d0fb6a0266, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6400293612983611612, guid: f0675cd033010bf49b6691d0fb6a0266, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6400293612983611612, guid: f0675cd033010bf49b6691d0fb6a0266, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6400293612983611612, guid: f0675cd033010bf49b6691d0fb6a0266, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6400293612983611612, guid: f0675cd033010bf49b6691d0fb6a0266, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6400293612983611612, guid: f0675cd033010bf49b6691d0fb6a0266, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6400293612983611612, guid: f0675cd033010bf49b6691d0fb6a0266, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6400293612983611613, guid: f0675cd033010bf49b6691d0fb6a0266, type: 3}
+      propertyPath: m_Name
+      value: Pickup (green)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f0675cd033010bf49b6691d0fb6a0266, type: 3}

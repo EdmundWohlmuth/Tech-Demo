@@ -6,41 +6,39 @@ public class DoorMove : MonoBehaviour
 {
     public bool isOpening;
     float speed;
-    Vector3 maxHeight;
-    Vector3 minHeight;
-    Vector3 currentHeight;
-    Vector3 yMovement;
+    public float maxHeight;
+    public float minHeight;
+    public float vertialHeight;
+
+    public Vector3 currentHeight;
 
     // Start is called before the first frame update
     void Start()
     {
         currentHeight = transform.position;
-        minHeight = currentHeight;
-        maxHeight = new Vector3(transform.position.x, transform.position.y + 2.5f, transform.position.z);
+        vertialHeight = currentHeight.y;      
+        minHeight = currentHeight.y;
+        maxHeight = currentHeight.y + 2.7f;
         speed = 8f;
     }
 
     // Update is called once per frame
     void Update()
     {
+        vertialHeight = transform.position.y;
+
         if (isOpening)
         {
-            yMovement = currentHeight;
-            yMovement *= 1;
-
             currentHeight = new Vector3(transform.position.x, currentHeight.y, transform.position.z);
-            transform.Translate(currentHeight * speed * Time.deltaTime);
-
+            transform.Translate(Vector3.up * speed * Time.deltaTime);
         }
         else if (!isOpening)
         {
-            yMovement = currentHeight;
-            yMovement *= -1;
-
             currentHeight = new Vector3(transform.position.x, currentHeight.y, transform.position.z);
-            transform.Translate(yMovement * speed * Time.deltaTime);
+            transform.Translate(Vector3.down * speed * Time.deltaTime);
         }
 
+        vertialHeight = Mathf.Clamp(vertialHeight, minHeight, maxHeight);
     }
 }
 
