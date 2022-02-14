@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour
     // ------------------------------------------------------------- Mouse Look
     void Look()
     {
-        Vector2 mouseLook = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y") * lookSensitivity);
+        Vector2 mouseLook = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
 
         cameraPitch -= mouseLook.y;
         cameraPitch = Mathf.Clamp(cameraPitch, -90, 90);
