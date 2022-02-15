@@ -5,8 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     float horizontalMovement;
-    float verticalMovement;
-    Vector3 characterMovement;
+    float verticalMovement;    
     Vector3 velocity;
 
     float gravity;
@@ -17,7 +16,7 @@ public class PlayerController : MonoBehaviour
     float speedModifer;
     float lookSensitivity;
 
-    bool isPaused = false;
+    bool isPaused = true;
     bool isGrounded;
 
     public Transform playerCamera;
@@ -42,7 +41,6 @@ public class PlayerController : MonoBehaviour
         Jump();
         Falling();
         Paused();
-        Shoot();
     }
 
     // -------------------------------------------------------------- Movement
@@ -117,25 +115,13 @@ public class PlayerController : MonoBehaviour
         {
             // Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
         }
         if (isPaused)
         {
             // Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-        }
-    }
-
-    // --------------------- WIP ------------------------------------ Shooting
-
-    void Shoot()
-    {
-        RaycastHit hit;
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            Debug.Log("Pew");
-            Physics.Raycast(playerCamera.transform.position, Vector3.forward, out hit, 50f);
-            Debug.DrawRay(transform.position, Vector3.forward);
+            Cursor.lockState = CursorLockMode.None;
         }
     }
 }
