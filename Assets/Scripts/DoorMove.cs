@@ -16,7 +16,7 @@ public class DoorMove : MonoBehaviour
     void Start()
     {
         currentHeight = transform.position;
-        vertialHeight = currentHeight.y;      
+        vertialHeight = currentHeight.y;
         minHeight = currentHeight.y;
         maxHeight = currentHeight.y + 2.7f;
         speed = 8f;
