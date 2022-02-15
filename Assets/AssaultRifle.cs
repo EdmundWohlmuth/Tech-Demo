@@ -29,7 +29,10 @@ public class AssaultRifle : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(playerCam.transform.position, playerCam.transform.forward, out hit, range))
         {
-            Debug.Log(hit.transform.name);
+            GameObject Sphere;           
+            Sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+
+            Sphere.transform.position = hit.point;
         }
     }
 }
