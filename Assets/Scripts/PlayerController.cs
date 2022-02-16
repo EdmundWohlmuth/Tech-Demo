@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
         lookSensitivity = 10f;
         cameraPitch = 0.0f;
         gravity = -9.81f;
-        jumpHeight = 5.0f;
+        jumpHeight = 3.0f;
     }
 
     // Update is called once per frame

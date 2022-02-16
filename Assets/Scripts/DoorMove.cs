@@ -5,40 +5,39 @@ using UnityEngine;
 public class DoorMove : MonoBehaviour
 {
     public bool isOpening;
-    float speed;
-    public float maxHeight;
-    public float minHeight;
-    public float vertialHeight;
 
-    public Vector3 currentHeight;
+    float speed = 5f;
+    Vector3 closedPos;
+    Vector3 openPos;
 
     // Start is called before the first frame update
     void Start()
     {
-        currentHeight = transform.position;
-        vertialHeight = currentHeight.y;
-        minHeight = currentHeight.y;
-        maxHeight = currentHeight.y + 2.7f;
-        speed = 8f;
+        closedPos = transform.position;
+        openPos = new Vector3(transform.position.x, transform.position.y + 2.7f, transform.position.z);
     }
 
     // Update is called once per frame
     void Update()
     {
-        vertialHeight = transform.position.y;
-
         if (isOpening)
         {
-            currentHeight = new Vector3(transform.position.x, currentHeight.y, transform.position.z);
-            transform.Translate(Vector3.up * speed * Time.deltaTime);
+            OpenCloseDoor(openPos);
         }
         else if (!isOpening)
         {
-            currentHeight = new Vector3(transform.position.x, currentHeight.y, transform.position.z);
-            transform.Translate(Vector3.down * speed * Time.deltaTime);
+            OpenCloseDoor(closedPos);
         }
-
-        vertialHeight = Mathf.Clamp(vertialHeight, minHeight, maxHeight);
     }
+
+    void OpenCloseDoor(Vector3 destination)
+    {
+        float distance = Vector3.Distance(transform.position, destination);
+        if (distance > 0.1f)
+        {
+            transform.position = Vector3.Lerp(transform.position, destination, speed * Time.deltaTime);
+        }
+    }
+
 }
 
