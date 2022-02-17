@@ -5,6 +5,10 @@ using UnityEngine;
 public class AssaultRifle : MonoBehaviour
 {
     public Camera playerCam;
+    public AudioSource source;
+    public AudioClip shootSound;
+    public AudioClip shootSound2;
+    
     public float range;
 
     // Start is called before the first frame update
@@ -19,6 +23,12 @@ public class AssaultRifle : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             Fire();
+            int randomNum = Random.Range(1, 3);
+            if (randomNum == 1)
+            {
+                source.PlayOneShot(shootSound);
+            }
+            else source.PlayOneShot(shootSound2);
         }
     }
 
