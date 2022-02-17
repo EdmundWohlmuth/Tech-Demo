@@ -21,11 +21,11 @@ public class DoorMove : MonoBehaviour
     void Update()
     {
         if (isOpening)
-        {
+        {          
             OpenCloseDoor(openPos);
         }
         else if (!isOpening)
-        {
+        {           
             OpenCloseDoor(closedPos);
         }
     }

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class AmmoPickup : MonoBehaviour
 {
+    public AudioSource source;
+    public AudioClip pickUp;
+
     void Update()
     {
         this.gameObject.transform.Rotate(new Vector3(90, 0, 0) * Time.deltaTime);
@@ -11,6 +14,7 @@ public class AmmoPickup : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        source.PlayOneShot(pickUp);
         GetComponent<BoxCollider>().enabled = false;
         GetComponent<MeshRenderer>().enabled = false;
 
