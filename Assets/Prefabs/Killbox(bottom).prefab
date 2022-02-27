@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 238427403577252816}
   - component: {fileID: 238427403577252819}
   - component: {fileID: 238427403577252818}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Killbox(bottom)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 2960274869805901556}
   - component: {fileID: 6434301573214070464}
   - component: {fileID: 4624919537632420199}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CheckpointTrigger
-  m_TagString: Untagged
+  m_TagString: Trigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108,4 +108,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6a6f94c529f0c24cb9e144e122c9b6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ResetPos: {fileID: 0}

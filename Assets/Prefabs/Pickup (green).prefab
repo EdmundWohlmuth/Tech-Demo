@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5085382347696306686}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Pickup (green)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 5085382348348702359}
   - component: {fileID: 5085382348348702358}
   - component: {fileID: 4704908128549702337}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
