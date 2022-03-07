@@ -14,7 +14,7 @@ public class MovingPlatform : MonoBehaviour
 
     float tolerance;
     float speed = 3f;
-    float delayTime = 1f;
+    float delayTime = 2f;
     float delayStart;
 
 

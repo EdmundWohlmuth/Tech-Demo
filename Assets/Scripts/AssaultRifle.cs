@@ -43,6 +43,7 @@ public class AssaultRifle : MonoBehaviour
             Sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
 
             Sphere.transform.position = hit.point;
+            Sphere.transform.parent = hit.transform;
         }
     }
 }
