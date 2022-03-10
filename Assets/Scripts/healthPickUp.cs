@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AmmoPickup : MonoBehaviour
+public class healthPickUp : MonoBehaviour
 {
     public AudioSource source;
     public AudioClip pickUp;
@@ -16,6 +16,7 @@ public class AmmoPickup : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         source.PlayOneShot(pickUp);
+        player.GetComponent<UIscript>().incrimentHealth();
 
         GetComponent<BoxCollider>().enabled = false;
         GetComponent<MeshRenderer>().enabled = false;
@@ -32,3 +33,4 @@ public class AmmoPickup : MonoBehaviour
     }
 
 }
+

@@ -11,6 +11,8 @@ public class AssaultRifle : MonoBehaviour
     
     public float range;
 
+    public int ammo;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +24,7 @@ public class AssaultRifle : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
+            ammo--;
             Fire();
             int randomNum = Random.Range(1, 3);
             if (randomNum == 1)
@@ -29,6 +32,10 @@ public class AssaultRifle : MonoBehaviour
                 source.PlayOneShot(shootSound);
             }
             else source.PlayOneShot(shootSound2);
+        }
+        else
+        {
+            // play sound click
         }
     }
 
