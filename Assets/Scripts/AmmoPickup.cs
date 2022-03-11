@@ -6,7 +6,12 @@ public class AmmoPickup : MonoBehaviour
 {
     public AudioSource source;
     public AudioClip pickUp;
-    public GameObject player;
+    public AssaultRifle gun;
+
+    private void Start()
+    {
+        
+    }
 
     void Update()
     {
@@ -16,6 +21,7 @@ public class AmmoPickup : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         source.PlayOneShot(pickUp);
+        gun.GetComponent<AssaultRifle>().incrimentAmmo();
 
         GetComponent<BoxCollider>().enabled = false;
         GetComponent<MeshRenderer>().enabled = false;

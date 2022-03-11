@@ -16,7 +16,6 @@ public class healthPickUp : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         source.PlayOneShot(pickUp);
-        player.GetComponent<UIscript>().incrimentHealth();
 
         GetComponent<BoxCollider>().enabled = false;
         GetComponent<MeshRenderer>().enabled = false;
