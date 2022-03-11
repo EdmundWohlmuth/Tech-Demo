@@ -109,3 +109,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  source: {fileID: 0}
+  sound: {fileID: 8300000, guid: 9fc5d55cba82c794dbf031e33caefaaa, type: 3}
