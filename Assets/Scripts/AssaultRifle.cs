@@ -9,6 +9,7 @@ public class AssaultRifle : MonoBehaviour
     public AudioSource source;
     public AudioClip shootSound;
     public AudioClip shootSound2;
+    public AudioClip noAmmo;
     
     public float range;
 
@@ -41,9 +42,9 @@ public class AssaultRifle : MonoBehaviour
             }
             else source.PlayOneShot(shootSound2);
         }
-        else
+        else if (Input.GetKeyDown(KeyCode.Mouse0) && ammo <= 0)
         {
-            // play sound click
+            source.PlayOneShot(noAmmo);
         }
     }
 
