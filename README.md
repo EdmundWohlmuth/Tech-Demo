@@ -4,6 +4,7 @@ By: Edmund Wohlmuth using Unity 2020.3.14f1
  
 # Engaging "Glue Gun" Mechanic
 The "Glue Gun" is a fun tool that enables the player to traverse and interact with the enviroment, sticking to both static and moving objects. The "Glue Gun" has a finite ammount of ammo but can be replenished by ammo pickups found throughout the level.
+
 ![TechDemo1](https://user-images.githubusercontent.com/74564582/160021348-2ffa08ca-5e2a-4107-9efa-d59ebe9d2fdb.gif)
 
 # A Proof of Concept
