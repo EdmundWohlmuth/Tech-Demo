@@ -10,4 +10,5 @@ The "Glue Gun" is a fun tool that enables the player to traverse and interact wi
 # A Proof of Concept
 The Tech-Demo posseses moving platforms the player can ride, doors and teleporters to access new areas, checkpoints to respawn at and pickups that effect gameplay this is the bedrock for a potential game, and despite being a class project, it had me _glued_ to my seat (yeah, that was a bad joke...)
 
-![TechDemo1](https://user-images.githubusercontent.com/74564582/160022238-b727b33a-07fa-4af7-8bf0-3130d518e91a.gif)
+![TechDemo2](https://user-images.githubusercontent.com/74564582/160022417-010d0f8e-13e2-404e-9ea8-3f17112897cb.gif)
+
